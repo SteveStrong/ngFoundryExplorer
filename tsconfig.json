@@ -22,6 +22,18 @@
       ],
       "ngFoundry/*": [
         "dist/ng-foundry/*"
+      ],
+      "mylib": [
+        "dist/mylib"
+      ],
+      "mylib/*": [
+        "dist/mylib/*"
+      ],
+      "foundry": [
+        "dist/foundry"
+      ],
+      "foundry/*": [
+        "dist/foundry/*"
       ]
     }
   }

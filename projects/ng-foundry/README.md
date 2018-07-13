@@ -2,7 +2,7 @@
 
 Interactive 2D/3D library for designed for the collaborative construction of semantically correct diagrams and drawings.
 
-Great visualization tools exist in open source for charting and diagraming (d3.js, three.js). ngFoundry is a programmatic approach to creating diagram with a focus on preserving the semantics of the model to be visualized. This is enforced during user interaction and programmatic queries. 
+Great visualization tools exist in open source for charting and diagraming (d3.js, three.js). ngFoundry is a programmatic approach to creating diagram with a focus on preserving the semantics of the model to be visualized. This is enforced during user interaction and programmatic queries.
 
 A Metadata Always approach allows for storage of design intent within executable code. Metadata can be transferred between computers in real time to synchronize the actions of multiple systems
 
@@ -38,8 +38,7 @@ ngFoundry mashes together computer science ideas from Object Oriented, programmi
 
 As an engineer practicing in the early days of computer programming, I was always disappointed that computer languages were created to procedurally execute instructions, and not semantically describe scenarios declaratively and optimize the outcome. I have learned that writing software is a process of primarily listening and coding toward the truth.  I believe visualization and collaboration leads to a deeper understanding of a problem and the people you are working with to build a solution.
 
-After 40 years of writing software I understand deeply why this must be true, but there is still a part of me that hopes by creating language elements that let non-programmers declarative describe their domain using their own vocabulary the task of creating software can become use error prone    
-
+After 40 years of writing software I understand deeply why this must be true, but there is still a part of me that hopes by creating language elements that let non-programmers declarative describe their domain using their own vocabulary the task of creating software can become use error prone
 
 # Instructions for building and running ngFoundry yourself
 
