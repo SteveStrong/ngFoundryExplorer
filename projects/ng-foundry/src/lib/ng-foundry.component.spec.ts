@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FoundryComponent } from './foundry.component';
+import { NgFoundryComponent } from './ng-foundry.component';
 
-describe('FoundryComponent', () => {
-  let component: FoundryComponent;
-  let fixture: ComponentFixture<FoundryComponent>;
+describe('NgFoundryComponent', () => {
+  let component: NgFoundryComponent;
+  let fixture: ComponentFixture<NgFoundryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FoundryComponent ]
+      declarations: [ NgFoundryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FoundryComponent);
+    fixture = TestBed.createComponent(NgFoundryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

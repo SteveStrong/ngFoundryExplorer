@@ -18,9 +18,11 @@
     ],
     "paths": {
       "ngFoundry": [
+        "dist/ng-foundry",
         "dist/ng-foundry"
       ],
       "ngFoundry/*": [
+        "dist/ng-foundry/*",
         "dist/ng-foundry/*"
       ],
       "mylib": [

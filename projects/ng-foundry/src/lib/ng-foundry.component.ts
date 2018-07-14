@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-foundry',
+  selector: 'lib-ngFoundry',
   template: `
     <p>
-      foundry works!
+      ng-foundry works!
     </p>
   `,
   styles: []
 })
-export class FoundryComponent implements OnInit {
+export class NgFoundryComponent implements OnInit {
 
   constructor() { }
 
