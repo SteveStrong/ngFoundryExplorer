@@ -10,6 +10,7 @@ import { Tools } from 'ng-foundry-models';
 })
 export class AppComponent implements OnInit {
   title = 'ng Foundry Explorer';
+  data: string = Tools.generateUUID();
 
   constructor(
     private toastr: ToastrService,
