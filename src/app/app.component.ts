@@ -1,6 +1,7 @@
 import { Component, ViewContainerRef, OnInit } from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
+import { Tools } from 'ngFoundryModels';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AppComponent implements OnInit {
   title = 'ng Foundry Explorer';
+  data: string = Tools.generateUUID();
 
   constructor(
     private toastr: ToastrService,
