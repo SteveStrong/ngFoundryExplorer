@@ -161,6 +161,46 @@
           }
         }
       }
+    },
+    "ngFoundryModels": {
+      "root": "projects/ng-foundry-models",
+      "sourceRoot": "projects/ng-foundry-models/src",
+      "projectType": "library",
+      "prefix": "fo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-foundry-models/tsconfig.lib.json",
+            "project": "projects/ng-foundry-models/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ng-foundry-models/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-foundry-models/src/test.ts",
+            "tsConfig": "projects/ng-foundry-models/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-foundry-models/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-foundry-models/tsconfig.lib.json",
+              "projects/ng-foundry-models/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngFoundryExplorer"
