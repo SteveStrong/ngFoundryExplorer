@@ -1,6 +1,7 @@
 import { Component, ViewContainerRef, OnInit } from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
+import { Tools } from 'ng-foundry-models';
 
 @Component({
   selector: 'app-root',

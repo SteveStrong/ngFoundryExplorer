@@ -7,11 +7,19 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 
+import { NgFoundryModelsModule } from 'ng-foundry-models';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [NgbModule.forRoot(), ToastrModule.forRoot(), BrowserModule, BrowserAnimationsModule],
+  imports: [
+    NgFoundryModelsModule,
+    NgbModule.forRoot(),
+    ToastrModule.forRoot(),
+    BrowserModule,
+    BrowserAnimationsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
