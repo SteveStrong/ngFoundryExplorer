@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/ng-foundry",
+  "dest": "../../dist/ng-foundry-shapes",
   "lib": {
     "entryFile": "src/public_api.ts"
   }

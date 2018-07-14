@@ -122,38 +122,38 @@
         }
       }
     },
-    "ngFoundry": {
-      "root": "projects/ng-foundry",
-      "sourceRoot": "projects/ng-foundry/src",
+    "ngFoundryShapes": {
+      "root": "projects/ng-foundry-shapes",
+      "sourceRoot": "projects/ng-foundry-shapes/src",
       "projectType": "library",
-      "prefix": "fo",
+      "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ng-foundry/tsconfig.lib.json",
-            "project": "projects/ng-foundry/ng-package.json"
+            "tsConfig": "projects/ng-foundry-shapes/tsconfig.lib.json",
+            "project": "projects/ng-foundry-shapes/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/ng-foundry/ng-package.prod.json"
+              "project": "projects/ng-foundry-shapes/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng-foundry/src/test.ts",
-            "tsConfig": "projects/ng-foundry/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-foundry/karma.conf.js"
+            "main": "projects/ng-foundry-shapes/src/test.ts",
+            "tsConfig": "projects/ng-foundry-shapes/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-foundry-shapes/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ng-foundry/tsconfig.lib.json",
-              "projects/ng-foundry/tsconfig.spec.json"
+              "projects/ng-foundry-shapes/tsconfig.lib.json",
+              "projects/ng-foundry-shapes/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

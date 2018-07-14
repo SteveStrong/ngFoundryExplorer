@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-ngFoundry',
+  selector: 'lib-ngFoundryShapes',
   template: `
     <p>
-      ng-foundry works!
+      ng-foundry-shapes works!
     </p>
   `,
   styles: []
 })
-export class NgFoundryComponent implements OnInit {
+export class NgFoundryShapesComponent implements OnInit {
 
   constructor() { }
 

@@ -36,6 +36,12 @@
       ],
       "foundry/*": [
         "dist/foundry/*"
+      ],
+      "ngFoundryShapes": [
+        "dist/ng-foundry-shapes"
+      ],
+      "ngFoundryShapes/*": [
+        "dist/ng-foundry-shapes/*"
       ]
     }
   }
