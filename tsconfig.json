@@ -18,9 +18,11 @@
     ],
     "paths": {
       "ngFoundry": [
+        "dist/ng-foundry",
         "dist/ng-foundry"
       ],
       "ngFoundry/*": [
+        "dist/ng-foundry/*",
         "dist/ng-foundry/*"
       ],
       "mylib": [
@@ -34,6 +36,18 @@
       ],
       "foundry/*": [
         "dist/foundry/*"
+      ],
+      "ngFoundryShapes": [
+        "dist/ng-foundry-shapes"
+      ],
+      "ngFoundryShapes/*": [
+        "dist/ng-foundry-shapes/*"
+      ],
+      "ngFoundryModels": [
+        "dist/ng-foundry-models"
+      ],
+      "ngFoundryModels/*": [
+        "dist/ng-foundry-models/*"
       ]
     }
   }

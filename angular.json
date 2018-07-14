@@ -122,118 +122,38 @@
         }
       }
     },
-    "ngFoundry": {
-      "root": "projects/ng-foundry",
-      "sourceRoot": "projects/ng-foundry/src",
+    "ngFoundryModels": {
+      "root": "projects/ng-foundry-models",
+      "sourceRoot": "projects/ng-foundry-models/src",
       "projectType": "library",
       "prefix": "fo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ng-foundry/tsconfig.lib.json",
-            "project": "projects/ng-foundry/ng-package.json"
+            "tsConfig": "projects/ng-foundry-models/tsconfig.lib.json",
+            "project": "projects/ng-foundry-models/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/ng-foundry/ng-package.prod.json"
+              "project": "projects/ng-foundry-models/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng-foundry/src/test.ts",
-            "tsConfig": "projects/ng-foundry/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-foundry/karma.conf.js"
+            "main": "projects/ng-foundry-models/src/test.ts",
+            "tsConfig": "projects/ng-foundry-models/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-foundry-models/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ng-foundry/tsconfig.lib.json",
-              "projects/ng-foundry/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "mylib": {
-      "root": "projects/mylib",
-      "sourceRoot": "projects/mylib/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/mylib/tsconfig.lib.json",
-            "project": "projects/mylib/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/mylib/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/mylib/src/test.ts",
-            "tsConfig": "projects/mylib/tsconfig.spec.json",
-            "karmaConfig": "projects/mylib/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/mylib/tsconfig.lib.json",
-              "projects/mylib/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "foundry": {
-      "root": "projects/foundry",
-      "sourceRoot": "projects/foundry/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/foundry/tsconfig.lib.json",
-            "project": "projects/foundry/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/foundry/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/foundry/src/test.ts",
-            "tsConfig": "projects/foundry/tsconfig.spec.json",
-            "karmaConfig": "projects/foundry/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/foundry/tsconfig.lib.json",
-              "projects/foundry/tsconfig.spec.json"
+              "projects/ng-foundry-models/tsconfig.lib.json",
+              "projects/ng-foundry-models/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

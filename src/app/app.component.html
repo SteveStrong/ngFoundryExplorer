@@ -1,9 +1,12 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
+
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
  </div>
+
+
 
 <ul>
   <li>
@@ -14,7 +17,7 @@
   </li>
 </ul>
 
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+<ngb-accordion  activeIds="ngb-panel-0">
   <ngb-panel title="Simple">
     <ng-template ngbPanelContent>
       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
@@ -49,3 +52,5 @@
     </ng-template>
   </ngb-panel>
 </ngb-accordion>
+
+<button class="btn btn-success" (click)="showSuccess()">Toastr Tester</button>
