@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 
-import { NgFoundryModelsModule } from 'ng-foundry-models';
+import { NgFoundryModelsModule } from 'ngFoundryModels';
 
 import { AppComponent } from './app.component';
 
