@@ -7,9 +7,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { BoidstestComponent } from './boidstest/boidstest.component';
 
 const routes: Routes = [
-  { path: 'boid', component: BoidstestComponent }
-  { path: 'welcome', component: WelcomeComponent }
-  { path: '', pathMatch: 'full', redirectTo: 'boid' },
+  { path: 'boid', component: BoidstestComponent },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'boid' }
 ];
 
 @NgModule({
