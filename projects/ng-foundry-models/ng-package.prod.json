@@ -8,6 +8,8 @@
     "angular",
     "@types/three",
     "rxjs",
-    "three"
+    "three",
+    "gasp",
+    "savery"
   ]
 }

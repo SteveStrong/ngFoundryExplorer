@@ -1,5 +1,5 @@
-import { Tools } from '../foundry/foTools';
-import { Action, Spec } from '../foundry/foInterface';
+import { Tools } from '../models/foTools';
+import { Action, Spec } from '../models/foInterface';
 
 import { foNode } from './foNode.model';
 import { foConcept } from './foConcept.model';

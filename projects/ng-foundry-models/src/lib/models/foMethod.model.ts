@@ -1,6 +1,6 @@
 import { foKnowledge } from './foKnowledge.model';
 import { foNode } from './foNode.model';
-import { Action, Spec } from '../foundry/foInterface';
+import { Action, Spec } from '../models/foInterface';
 
 export class foMethod<T extends foNode> extends foKnowledge {
   funct: Action<T>;

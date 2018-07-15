@@ -5,14 +5,18 @@
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
     "@types/three": "^0.92.12",
+    "gasp": "0.0.2",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
+    "savery": "^1.2.0",
     "three": "^0.94.0"
   },
   "dependencies": {
     "@types/three": "^0.92.12",
+    "gasp": "0.0.2",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
+    "savery": "^1.2.0",
     "three": "^0.94.0"
   }
 }
