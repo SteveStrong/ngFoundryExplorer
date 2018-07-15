@@ -1,4 +1,34 @@
 
+<div class="navbar navbar-inverse " role="navigation">
+  <div class="container-fluid">
+    <a class='navbar-brand' [href]="href" target="_blank">+</a>
+    <a class='navbar-brand' [routerLink]="['/welcome']">Welcome</a>
+    <a class="nav navbar-brand " [routerLink]="[ '/domian'] ">Domian</a>
+    <a class="nav navbar-brand " [routerLink]="[ '/drawing'] ">Drawing</a>
+    <a class="nav navbar-brand " [routerLink]="[ '/world'] ">World</a>
+    <a class="nav navbar-brand " [routerLink]="[ '/dashboard'] ">Dashboard</a>
+    <a class="nav navbar-brand " [routerLink]="[ '/devsecops'] ">DevSecOps</a>
+
+    <div class="nav navbar-nav navbar-right ">
+
+      <a class="nav navbar-brand " [routerLink]="[ '/canvas'] ">Canvas</a>
+      <a class="nav navbar-brand " [routerLink]="[ '/test'] ">Test</a>
+
+      <a class="nav navbar-brand " [routerLink]="[ '/webgl'] ">WebGL</a>
+      <a class="nav navbar-brand " [routerLink]="[ '/svg'] ">SVG</a>
+      <a class="nav navbar-brand " [routerLink]="[ '/tree'] ">Tree</a>
+      <a class="nav navbar-brand " [routerLink]="[ '/list'] ">List</a>
+      <a class="nav navbar-brand " [routerLink]="[ '/swim'] ">Swim</a>
+      <a class="nav navbar-brand " [routerLink]="[ '/network'] ">Network</a>
+      <a class="nav navbar-brand " [routerLink]="[ '/zone'] ">Zone</a>
+  </div>
+
+  </div>
+</div>
+
+<div class="content" style="padding-top:0px">
+  <router-outlet></router-outlet>
+</div>
 
 <div style="text-align:center">
   <h1>
@@ -7,6 +37,7 @@
  </div>
 
 <fo-root></fo-root>
+
 
 <ul>
   <li>

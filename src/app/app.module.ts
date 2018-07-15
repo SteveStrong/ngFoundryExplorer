@@ -10,15 +10,22 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgFoundryModelsModule } from 'ngFoundryModels';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
+
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    WelcomeComponent
+  ],
   imports: [
     NgFoundryModelsModule,
     NgbModule.forRoot(),
     ToastrModule.forRoot(),
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
