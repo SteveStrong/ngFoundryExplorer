@@ -1,24 +1,24 @@
 import { Matrix4, Material, Geometry, BoxGeometry, MeshBasicMaterial, Mesh, Vector3 } from 'three';
 
-import { Tools } from '../foTools'
+import { Tools } from '../foTools';
 import { cPoint3D } from './foGeometry3D';
 
-import { foObject } from '../foObject.model'
+import { foObject } from '../foObject.model';
 
 
-import { foCollection } from '../foCollection.model'
-import { foNode } from '../foNode.model'
+import { foCollection } from '../foCollection.model';
+import { foNode } from '../foNode.model';
 
-import { foGlyph } from '../foGlyph.model'
-import { foHandle3D } from './foHandle3D'
-import { foPin3D } from './foPin3D'
+import { foGlyph } from '../foGlyph.model';
+import { foHandle3D } from './foHandle3D';
+import { foPin3D } from './foPin3D';
 
-import { Screen3D } from "./threeDriver";
+import { Screen3D } from './threeDriver';
 
 
 import { Lifecycle } from '../foLifecycle';
 
-export { GlyphDictionary } from '../foGlyph.model'
+export { GlyphDictionary } from '../foGlyph.model';
 
 //a Shape is a graphic designed to behave like a visio shape
 //and have all the same properties
@@ -52,7 +52,7 @@ export class foGlyph3D extends foGlyph {
         value != this._x && this.clearMesh();
         this._x = value;
     }
-    get y(): number { return this._y || 0.0 }
+    get y(): number { return this._y || 0.0; }
     set y(value: number) {
         value != this._y && this.clearMesh();
         this._y = value;
@@ -103,9 +103,9 @@ export class foGlyph3D extends foGlyph {
         this._angleZ = value;
     }
 
-    public rotationX = (): number => { return this.angleX; }
-    public rotationY = (): number => { return this.angleY; }
-    public rotationZ = (): number => { return this.angleZ; }
+    public rotationX = (): number => { return this.angleX; };
+    public rotationY = (): number => { return this.angleY; };
+    public rotationZ = (): number => { return this.angleZ; };
 
 
     constructor(properties?: any, subcomponents?: Array<foGlyph3D>, parent?: foObject) {
@@ -120,24 +120,24 @@ export class foGlyph3D extends foGlyph {
         if (!Number.isNaN(x) && this.x != x) {
             changed = true;
             this.x = x;
-        };
+        }
 
         if (!Number.isNaN(y) && this.y != y) {
             changed = true;
             this.y = y;
-        };
+        }
 
         if (!Number.isNaN(z) && this.z != z) {
             changed = true;
             this.z = z;
-        };
+        }
 
         return changed;
     }
 
     public dropAt(x: number = Number.NaN, y: number = Number.NaN, z: number = Number.NaN) {
         if (this.didLocationChange(x, y, z)) {
-            this.mesh.position.set(this.x, this.y, this.z)
+            this.mesh.position.set(this.x, this.y, this.z);
             this.setupPreDraw();
             let point = this.getGlobalPosition();
             Lifecycle.dropped(this, point);
@@ -154,7 +154,7 @@ export class foGlyph3D extends foGlyph {
             x: this.x,
             y: this.y,
             z: this.z,
-        }
+        };
     }
 
     public pinLocation(): any {
@@ -162,13 +162,13 @@ export class foGlyph3D extends foGlyph {
             x: 0,
             y: 0,
             z: 0,
-        }
+        };
     }
 
     nullGeometry() {
         this.geometry = (spec?: any): Geometry => {
             return new BoxGeometry(0, 0, 0);
-        }
+        };
         this.clearMesh();
         return this;
     }
@@ -183,7 +183,7 @@ export class foGlyph3D extends foGlyph {
             opacity: this.opacity,
             transparent: this.opacity < 1 ? true : false,
             wireframe: false
-        }, spec)
+        }, spec);
         return new MeshBasicMaterial(props);
     }
 
@@ -193,13 +193,13 @@ export class foGlyph3D extends foGlyph {
         return obj;
     }
 
-    //children in the model map to children of a mesh
-    //https://bl.ocks.org/mpmckenna8/e0e3a8f79c711b29c55f
+    // children in the model map to children of a mesh
+    // https://bl.ocks.org/mpmckenna8/e0e3a8f79c711b29c55f
     protected _mesh: Mesh;
     get mesh(): Mesh {
         if (!this._mesh) {
-            let geom = this.geometry()
-            let mat = this.material()
+            let geom = this.geometry();
+            let mat = this.material();
             let obj = (geom && mat) && new Mesh(geom, mat);
             if (obj) {
                 this._mesh = this.setMeshMatrix(obj);
@@ -210,15 +210,15 @@ export class foGlyph3D extends foGlyph {
     }
     set mesh(value: Mesh) { this._mesh = value; }
     get hasMesh(): boolean {
-        return this._mesh != undefined
+        return this._mesh != undefined;
     }
     removeMesh(deep: boolean = false) {
         if (!this._mesh) return;
 
-        //also think about handles and connection points
+        // also think about handles and connection points
         deep && this.nodes.forEach(child => {
             child.removeMesh(deep);
-        })
+        });
 
         let parent = this.mesh.parent;
         if (parent) {
@@ -229,10 +229,10 @@ export class foGlyph3D extends foGlyph {
     clearMesh(deep: boolean = false) {
         if (!this._mesh) return;
 
-        //also think about handles and connection points
+        // also think about handles and connection points
         deep && this.nodes.forEach(child => {
             child.clearMesh(deep);
-        })
+        });
         this.setupPreDraw();
     }
 
@@ -256,41 +256,41 @@ export class foGlyph3D extends foGlyph {
         });
     }
 
-    //http://www.codinglabs.net/article_world_view_projection_matrix.aspx
-    //https://scottbyrns.atlassian.net/wiki/spaces/THREEJS/pages/27721809/Matrix4
+    // http://www.codinglabs.net/article_world_view_projection_matrix.aspx
+    // https://scottbyrns.atlassian.net/wiki/spaces/THREEJS/pages/27721809/Matrix4
 
     getGlobalMatrix(): Matrix4 {
         let mat = this.mesh.matrixWorld;
         return mat;
-    };
+    }
 
     getGlobalInvMatrix(): Matrix4 {
         let mat = this.getGlobalMatrix();
         mat = mat.getInverse(mat);
         return mat;
-    };
+    }
 
     getMatrix(): Matrix4 {
         return this.mesh.matrix;
-    };
+    }
 
     getInvMatrix(): Matrix4 {
         let mat = this.getMatrix();
         mat = mat.getInverse(mat);
         return mat;
-    };
+    }
 
     localToGlobal(pt: Vector3): Vector3 {
         let mat = this.getGlobalMatrix();
         let vec = mat.multiplyVector3(pt);
         return vec;
-    };
+    }
 
     globalToLocal(pt: Vector3): Vector3 {
         let inv = this.getGlobalMatrix();
         let vec = inv.multiplyVector3(pt);
         return vec;
-    };
+    }
 
     getGlobalPosition(pt?: Vector3): Vector3 {
         this.mesh.updateMatrix();
@@ -320,7 +320,7 @@ export class foGlyph3D extends foGlyph {
                 mesh.name = this.myGuid;
                 let parent = this.myParent() as foGlyph3D;
                 if (parent && parent.hasMesh) {
-                    parent.mesh.add(mesh)
+                    parent.mesh.add(mesh);
                 } else {
                     screen.addToScene(mesh);
                 }
@@ -338,25 +338,25 @@ export class foGlyph3D extends foGlyph {
 
                 this.preDraw3D = undefined;
             }
-        }
+        };
         this.preDraw3D = preDraw;
     }
 
-    afterMeshCreated: (...args) => void = () => { }
-    afterMeshRendered: (...args) => void = () => { }
+    afterMeshCreated: (...args) => void = () => { };
+    afterMeshRendered: (...args) => void = () => { };
 
     preDraw3D: (screen: Screen3D) => void;
 
     draw3D = (screen: Screen3D, deep: boolean = true) => {
         if (!this.hasMesh) return;
         this.setMeshMatrix(this.mesh);
-    };
+    }
 
     render3D = (screen: Screen3D, deep: boolean = true) => {
-        this.preDraw3D && this.preDraw3D(screen)
+        this.preDraw3D && this.preDraw3D(screen);
         this.draw3D && this.draw3D(screen);
 
-        //this.drawHandles(screen);
+        // this.drawHandles(screen);
         this.drawPin(screen);
         deep && this._subcomponents.forEach(item => {
             item.render3D(screen, deep);
@@ -366,7 +366,7 @@ export class foGlyph3D extends foGlyph {
     public drawHandles(screen: Screen3D) {
         this.handles.forEach(item => {
             item.render3D(screen);
-        })
+        });
     }
 
     public drawPin(screen: Screen3D) {
@@ -399,17 +399,17 @@ export class foGlyph3D extends foGlyph {
 
         let i = 0;
         if (!this._handles) {
-            this._handles = new foCollection<foHandle3D>()
+            this._handles = new foCollection<foHandle3D>();
             spec.forEach(item => {
-                let type = item.myType ? item.myType : RuntimeType.define(foHandle3D)
+                let type = item.myType ? item.myType : RuntimeType.define(foHandle3D);
                 let handle = new type(item, undefined, this);
-                handle.doMoveProxy = proxy && proxy[i]
+                handle.doMoveProxy = proxy && proxy[i];
                 this._handles.addMember(handle);
                 i++;
             });
         } else {
             spec.forEach(item => {
-                let handle = this._handles.getChildAt(i)
+                let handle = this._handles.getChildAt(i);
                 handle.override(item);
                 handle.doMoveProxy = proxy && proxy[i];
                 i++;
@@ -427,27 +427,27 @@ export class foGlyph3D extends foGlyph {
         let spec = [
             { x: -w, y: -h, z: -d, myName: "0:0:0", myType: RuntimeType.define(foHandle3D) },
             { x: w, y: -h, z: -d, myName: "W:0:0" },
-            { x: w, y: h, z: -d, myName: "W:H:0" },
-            { x: -w, y: h, z: -d, myName: "0:H:0" },
+            { x: w, y: h, z: -d, myName: 'W:H:0' },
+            { x: -w, y: h, z: -d, myName: '0:H:0' },
 
-            { x: -w, y: -h, z: d, myName: "0:0:D", myType: RuntimeType.define(foHandle3D) },
-            { x: w, y: -h, z: d, myName: "W:0:D" },
-            { x: w, y: h, z: d, myName: "W:H:D" },
-            { x: -w, y: h, z: d, myName: "0:H:D" },
+            { x: -w, y: -h, z: d, myName: '0:0:D', myType: RuntimeType.define(foHandle3D) },
+            { x: w, y: -h, z: d, myName: 'W:0:D' },
+            { x: w, y: h, z: d, myName: 'W:H:D' },
+            { x: -w, y: h, z: d, myName: '0:H:D' },
         ];
 
         return this.generateHandles(spec);
     }
 
     public getHandle(name: string): foHandle3D {
-        if (!this._handles) return;
+        if (!this._handles) { return; }
         return this._handles.findMember(name);
     }
 
     public findHandle(loc: cPoint3D, e): foHandle3D {
-        if (!this._handles) return;
+        if (!this._handles) { return; }
 
-        for (var i: number = 0; i < this.handles.length; i++) {
+        for (var i = 0; i < this.handles.length; i++) {
             let handle: foHandle3D = this.handles.getChildAt(i);
             if (handle.hitTest(loc)) {
                 return handle;
@@ -458,10 +458,10 @@ export class foGlyph3D extends foGlyph {
 
 }
 
-//https://www.typescriptlang.org/docs/handbook/mixins.html
+// https://www.typescriptlang.org/docs/handbook/mixins.html
 
 import { RuntimeType } from '../foRuntimeType';
 
 RuntimeType.define(foGlyph3D);
 
-//RuntimeType.applyMixins(foGlyph3D, [foGlyph2D, foBody3D]);
+// RuntimeType.applyMixins(foGlyph3D, [foGlyph2D, foBody3D]);

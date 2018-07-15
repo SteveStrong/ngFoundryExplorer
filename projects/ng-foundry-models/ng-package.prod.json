@@ -3,5 +3,11 @@
   "dest": "../../dist/ng-foundry-models",
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "angular",
+    "@types/three",
+    "rxjs",
+    "three"
+  ]
 }
