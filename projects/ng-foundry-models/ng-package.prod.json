@@ -10,7 +10,7 @@
     "rxjs",
     "rxjs/operators",
     "three",
-    "gasp",
+    "gsap",
     "savery"
   ]
 }
