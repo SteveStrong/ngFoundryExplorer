@@ -9,7 +9,7 @@ import { Tools } from 'ngFoundryModels';
   styleUrls: ['./boidstest.component.css']
 })
 export class BoidstestComponent implements OnInit {
-  guid:string;
+  guid: string;
   constructor() { }
 
   ngOnInit() {

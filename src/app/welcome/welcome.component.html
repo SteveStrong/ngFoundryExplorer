@@ -10,21 +10,21 @@
 <div class="row">
 
   <div class="col-md-4">
-      <h1>{{model['full']}}</h1>
+    <h1>{{model['full']}}</h1>
 
-      <pre class="well">{{model | json}}</pre>
+    <pre class="well">{{model | json}}</pre>
   </div>
 
   <div class="col-md-4">
-      <h1>SignalR Chat</h1>
-      <input type="text" #chat (keyup)="onKeyUp(chat.value)" (keyup.enter)="onInput(chat.value)">
-      <button (click)="doPost()">Go</button>
-      <br>
-      <pre class="well">{{typeinText}}</pre>
+    <h1>SignalR Chat</h1>
+    <input type="text" #chat (keyup)="onKeyUp(chat.value)" (keyup.enter)="onInput(chat.value)">
+    <button (click)="doPost()">Go</button>
+    <br>
+    <pre class="well">{{typeinText}}</pre>
   </div>
 
   <div class="col-md-4">
-      <h1>SignalR Text</h1>
-      <div *ngFor="let item of postList">{{item}}</div>
+    <h1>SignalR Text</h1>
+    <div *ngFor="let item of postList">{{item}}</div>
   </div>
 </div>
