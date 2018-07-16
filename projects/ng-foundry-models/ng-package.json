@@ -9,6 +9,7 @@
     "angular",
     "@types/three",
     "rxjs",
+    "rxjs/operators",
     "three",
     "gasp",
     "savery"
