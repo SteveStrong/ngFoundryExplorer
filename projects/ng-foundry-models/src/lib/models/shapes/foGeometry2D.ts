@@ -1,7 +1,6 @@
 
 import { iPoint2D, iRect, iBox, iMargin, iFrame } from '../foInterface';
-import { Vector2 } from 'three';
-export { Vector2, Matrix3 } from 'three';
+export { Vector2, Matrix3 } from 'three/three-core';
 
 export class cPoint2D extends Vector2 implements iPoint2D {
 
