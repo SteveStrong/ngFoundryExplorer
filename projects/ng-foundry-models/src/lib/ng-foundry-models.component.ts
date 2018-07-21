@@ -5,13 +5,13 @@ import { Tools } from './models/foTools';
   selector: 'fo-root',
   template: `
     <p>
-      simple tools test {{data}}
+      simple tools test
     </p>
   `,
   styles: []
 })
 export class NgFoundryModelsComponent implements OnInit {
-  data: string;
+  public data: string;
 
   constructor() { }
 

@@ -180,7 +180,7 @@ foGlyph2D extends foGlyph implements iShape {
     x: number,
     y: number,
     time: number = 0.5,
-    ease: any = Back.ease
+    ease: any = Back.easeInOut
   ) {
     TweenLite.to(this, time, {
       x: x,
@@ -199,7 +199,7 @@ foGlyph2D extends foGlyph implements iShape {
     x: number,
     y: number,
     time: number = 0.5,
-    ease: any = Back.ease
+    ease: any = Back.easeInOut
   ) {
     TweenLite.to(this, time, {
       x: x,
