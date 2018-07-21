@@ -253,8 +253,8 @@ export class SharingService {
         LifecycleLock.protected(cmd.guid, this, _ => {
           this.workspace.activePage.found(cmd.guid, (shape) => {
             this.workspace.activePage.found(parentGuid,
-              (item) => { shape.reParent(item) },
-              (miss) => { shape.reParent(this.workspace.activePage) })
+              (item) => { shape.reParent(item); },
+              (miss) => { shape.reParent(this.workspace.activePage); });
           });
         });
 
@@ -300,7 +300,7 @@ export class SharingService {
         this.workspace.activePage.found(cmd.guid, item => {
           item.wait(10, () =>
             LifecycleLock.protected(cmd.guid, self, _ => {
-              item[method](resize, space)
+              item[method](resize, space);
             }));
         });
       });

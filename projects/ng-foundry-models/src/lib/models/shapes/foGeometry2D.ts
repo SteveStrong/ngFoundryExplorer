@@ -34,10 +34,10 @@ export class cPoint2D extends Vector2 implements iPoint2D {
 
     isNear(p: cPoint2D, radius: number): boolean {
         const dx = Math.abs(p.x - this.x);
-        if (dx > radius) return false;
+        if (dx > radius) { return false; }
 
         const dy = Math.abs(p.y - this.y);
-        if (dy > radius) return false;
+        if (dy > radius) { return false; }
         return true;
 
     }
