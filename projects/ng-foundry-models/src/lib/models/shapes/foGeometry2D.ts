@@ -6,6 +6,8 @@ export { Vector2, Matrix3 } from 'three';
 export class cPoint2D extends Vector2 implements iPoint2D {
 
     public myName: string;
+    public x: number;
+    public y: number;
 
     constructor(x: number = 0, y: number = 0, name?: string) {
         super(x, y);

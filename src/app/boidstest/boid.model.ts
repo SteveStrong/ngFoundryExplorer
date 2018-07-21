@@ -12,7 +12,7 @@ import { foController, foToggle } from 'ngFoundryModels';
 export let BoidStencil: foStencilLibrary = new foStencilLibrary().defaultName(
   'Boids'
 );
-export { foShape2D } from '.ngFoundryModels';
+export { foShape2D } from 'ngFoundryModels';
 import { foPage } from 'ngFoundryModels';
 
 export let globalBoidList: foCollection<boidMixin> = new foCollection<boidMixin>().setName('All Boids');
@@ -379,8 +379,7 @@ export class Boid extends BoidShape {
       this.drawSelected(ctx);
     } else {
       this.drawTriangle(ctx, 0, this.height, this.width, this.height / 2, 0, 0);
-      this.isVisible &&
-        this.drawCircle(ctx, this.pinX(), this.pinY(), this.gap);
+      this.isVisible &&  this.drawCircle(ctx, this.pinX(), this.pinY(), this.gap);
     }
   }
 }
@@ -418,6 +417,6 @@ BoidStencil.define('Boid++', Boid, {
   obj.gap = Tools.random(25, 100);
 });
 
-import { RuntimeType } from './models/foRuntimeType';
-import { foGlyph } from './models/foGlyph.model';
+import { RuntimeType } from 'ngFoundryModels';
+import { foGlyph } from 'ngFoundryModels';
 RuntimeType.define(Boid);

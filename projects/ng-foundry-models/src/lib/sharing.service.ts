@@ -6,12 +6,12 @@ import { SignalRService } from './signalr.service';
 import { RuntimeType } from './models/foRuntimeType';
 import { Stencil } from './models/foStencil';
 
-import { foNode } from '/models/foNode.model';
-import { foGlyph2D } from '../models/shapes/foGlyph2D.model';
+import { foNode } from './models/foNode.model';
+import { foGlyph2D } from './models/shapes/foGlyph2D.model';
 import { foShape2D } from './models/shapes/foShape2D.model';
 
 
-//https://greensock.com/docs/TweenMax
+// https://greensock.com/docs/TweenMax
 import { Back } from 'gsap';
 import { foObject } from './models/foObject.model';
 import { iGlueSignature } from './models/foInterface';

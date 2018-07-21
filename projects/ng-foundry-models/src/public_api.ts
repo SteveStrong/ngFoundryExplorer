@@ -25,6 +25,10 @@ export * from './lib/models/foConcept.model';
 export * from './lib/models/foProperty.model';
 export * from './lib/models/foSolution.model';
 
+export * from './lib/models/foGlyph.model';
+export * from './lib/models/foStencil';
+export * from './lib/models/foController';
+
 // export * from './lib/models/foBitwise';
 
 // export * from './lib/models/foWorkspace.model';
