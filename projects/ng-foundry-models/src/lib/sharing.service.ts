@@ -12,7 +12,8 @@ import { foShape2D } from './models/shapes/foShape2D.model';
 
 
 // https://greensock.com/docs/TweenMax
-import { Back } from 'gsap';
+// import { Back } from 'gsap';
+
 import { foObject } from './models/foObject.model';
 import { iGlueSignature } from './models/foInterface';
 import { LifecycleLock, Lifecycle, KnowcycleLock, Knowcycle } from './models/foLifecycle';
@@ -202,8 +203,8 @@ export class SharingService {
       this.signalR.subCommand('easeTo', (cmd, data) => {
         LifecycleLock.protected(cmd.guid, this, _ => {
           this.workspace.activePage.found(cmd.guid, shape => {
-            shape.easeTo(data.x, data.y, .8, Back.easeInOut);
-            //forceParent(shape);
+            // shape.easeTo(data.x, data.y, .8, Back.easeInOut);
+            // NO forceParent(shape);
           });
         });
       });
@@ -310,7 +311,7 @@ export class SharingService {
         LifecycleLock.protected(cmd.guid, this, _ => {
           let { time, ease, to } = value;
           this.workspace.activePage.found(cmd.guid, item => {
-            item.easeTween(to, time, Back[ease]);
+            // item.easeTween(to, time, Back[ease]);
           });
         });
 
