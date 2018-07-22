@@ -24,6 +24,44 @@ export class boidController extends foController {
   applyRule3: boolean = false;
   applyRule4: boolean = false;
 
+  toggleRule1: foToggle = new foToggle(
+    'group',
+    () => {
+      this.applyRule1 = !this.applyRule1;
+    },
+    () => {
+      return { active: this.applyRule1 };
+    }
+  );
+
+  toggleRule2: foToggle = new foToggle(
+    'no crash',
+    () => {
+      this.applyRule2 = !this.applyRule2;
+    },
+    () => {
+      return { active: this.applyRule2 };
+    }
+  );
+
+  toggleRule3: foToggle = new foToggle(
+    'speed',
+    () => {
+      this.applyRule3 = !this.applyRule3;
+    },
+    () => {
+      return { active: this.applyRule3 };
+    }
+  );
+
+  toggleRule4: foToggle = new foToggle(
+    'perch',
+    () => (this.applyRule4 = !this.applyRule4),
+    () => {
+      return { active: this.applyRule4 };
+    }
+  );
+
   applyRules(boid: boidMixin, func: Action<cPoint2D>) {
     const v = new cPoint2D();
     if (this.applyRule1) {
@@ -170,43 +208,7 @@ export class boidController extends foController {
     return list;
   }
 
-  toggleRule1: foToggle = new foToggle(
-    'group',
-    () => {
-      this.applyRule1 = !this.applyRule1;
-    },
-    () => {
-      return { active: this.applyRule1 };
-    }
-  );
 
-  toggleRule2: foToggle = new foToggle(
-    'no crash',
-    () => {
-      this.applyRule2 = !this.applyRule2;
-    },
-    () => {
-      return { active: this.applyRule2 };
-    }
-  );
-
-  toggleRule3: foToggle = new foToggle(
-    'speed',
-    () => {
-      this.applyRule3 = !this.applyRule3;
-    },
-    () => {
-      return { active: this.applyRule3 };
-    }
-  );
-
-  toggleRule4: foToggle = new foToggle(
-    'perch',
-    () => (this.applyRule4 = !this.applyRule4),
-    () => {
-      return { active: this.applyRule4 };
-    }
-  );
 }
 
 export let boidBehaviour: boidController = new boidController().defaultName(
