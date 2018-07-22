@@ -47,19 +47,19 @@ export class BoidstestComponent implements OnInit, AfterViewInit  {
     this.guid = Tools.generateUUID();
 
     const space = this.workspace;
-
-    space.stencil.add(BoidStencil);
-    space.controller.add(boidBehaviour);
-
-    boidBehaviour.creatBoids(space.activePage, 100);
-
-
-    this.currentDocument = this.workspace.document.override({
+    this.model = space.model.establish('default');
+    this.currentDocument = space.document.override({
       pageWidth: this.pageWidth,
       pageHeight: this.pageHeight
     });
 
-    this.model = this.workspace.model.establish('default');
+    //space.stencil.add(BoidStencil);
+    //space.controller.add(boidBehaviour);
+
+
+
+
+
   }
 
   public ngAfterViewInit() {
@@ -72,6 +72,8 @@ export class BoidstestComponent implements OnInit, AfterViewInit  {
     );
 
     setTimeout(_ => {
+      const space = this.workspace;
+      //boidBehaviour.creatBoids(space.activePage, 1);
       this.doSetCurrentPage(this.currentDocument.currentPage);
     });
   }
