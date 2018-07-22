@@ -24,6 +24,7 @@ export * from './lib/models/foLibrary.model';
 export * from './lib/models/foConcept.model';
 export * from './lib/models/foProperty.model';
 export * from './lib/models/foSolution.model';
+export * from './lib/models/foWorkspace.model';
 
 export * from './lib/models/foGlyph.model';
 export * from './lib/models/foStencil';

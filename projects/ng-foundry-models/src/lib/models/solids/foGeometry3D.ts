@@ -6,6 +6,9 @@ export { Vector3, Matrix4 } from 'three';
 export class cPoint3D extends Vector3 implements iPoint3D {
 
     public myName: string;
+    public x: number;
+    public y: number;
+    public z: number;
 
     constructor(x: number = 0, y: number = 0, z: number = 0, name?: string) {
         super(x, y, z);
