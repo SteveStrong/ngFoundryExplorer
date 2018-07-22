@@ -14,12 +14,16 @@ import { AppRoutingModule } from './app.routing.module';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BoidstestComponent } from './boidstest/boidstest.component';
+import { CanvastestComponent } from './canvastest/canvastest.component';
+import { ShapetestComponent } from './shapetest/shapetest.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    BoidstestComponent
+    BoidstestComponent,
+    ShapetestComponent,
+    CanvastestComponent
   ],
   imports: [
     NgFoundryModelsModule,
