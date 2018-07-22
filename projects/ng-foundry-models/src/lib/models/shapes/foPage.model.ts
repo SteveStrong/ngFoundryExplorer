@@ -75,13 +75,13 @@ export class foPage extends foShape2D {
 
   public pinX = (): number => {
     return 0 * this.width;
-  };
+  }
   public pinY = (): number => {
     return 0 * this.height;
-  };
+  }
   public rotationZ = (): number => {
     return this.angle;
-  };
+  }
 
   mouseLoc: any = {};
 
@@ -159,12 +159,12 @@ export class foPage extends foShape2D {
     deep: boolean = true,
     exclude: foGlyph2D = null
   ): foGlyph2D {
-    let found: foGlyph2D = undefined;
-    for (var i: number = 0; i < this.nodes.length; i++) {
+    let found: foGlyph2D;
+    for (let i: number = 0; i < this.nodes.length; i++) {
       const shape = this.nodes.getMember(i);
-      if (shape === exclude) continue;
+      if (shape === exclude) { continue; }
       found = shape.findObjectUnderPoint(hit, deep);
-      if (found) return found;
+      if (found) { return found; }
     }
   }
 
@@ -174,9 +174,9 @@ export class foPage extends foShape2D {
     exclude: foGlyph2D = null
   ): foGlyph2D {
     const frame = source.boundryFrame;
-    for (var i: number = 0; i < this.nodes.length; i++) {
+    for (let i: number = 0; i < this.nodes.length; i++) {
       let shape: foGlyph2D = this._subcomponents.getMember(i);
-      if (source.hasAncestor(shape) || shape === exclude) continue;
+      if (source.hasAncestor(shape) || shape === exclude) { continue; }
       if (shape.findObjectUnderFrame(source, frame, deep)) {
         return shape;
       }
@@ -433,7 +433,7 @@ export class foPage extends foShape2D {
   zoomToCenter(g: cPoint2D, zoom: number, e: WheelEvent) {
     //you need to track this position in global space
     //so you can return it to the same location on the screen
-    var pt1 = this.globalToLocalPoint(g);
+    let pt1 = this.globalToLocalPoint(g);
 
     this.zoomBy(zoom);
     //page.updatePIP();
@@ -607,7 +607,7 @@ export class foPage extends foShape2D {
     const mouseup = (loc: cPoint2D, e: MouseEvent, keys) => {
       grab = null;
       this.onMouseLocationChanged(loc, 'up', keys);
-      if (!shape) return;
+      if (!shape) { return; }
 
       this._subcomponents.moveToTop(shape);
 
@@ -656,7 +656,7 @@ export class foPage extends foShape2D {
     this.mouseLoc = loc;
     this.mouseLoc.state = state;
     this.mouseLoc.keys = keys;
-  };
+  }
 
   public onItemChangedParent = (shape: foGlyph2D): void => {};
 
@@ -667,50 +667,50 @@ export class foPage extends foShape2D {
     shape: foGlyph2D,
     shapeUnder: foGlyph2D,
     keys?: any
-  ): void => {};
+  ): void => {}
 
   public onItemOverlapExit = (
     loc: cPoint2D,
     shape: foGlyph2D,
     shapeUnder: foGlyph2D,
     keys?: any
-  ): void => {};
+  ): void => {}
 
   public onItemHoverEnter = (
     loc: cPoint2D,
     shape: foGlyph2D,
     keys?: any
-  ): void => {};
+  ): void => {}
 
   public onItemHoverExit = (
     loc: cPoint2D,
     shape: foGlyph2D,
     keys?: any
-  ): void => {};
+  ): void => {}
 
   public onHandleHoverEnter = (
     loc: cPoint2D,
     handle: foHandle2D,
     keys?: any
-  ): void => {};
+  ): void => {}
 
   public onHandleMoving = (
     loc: cPoint2D,
     handle: foHandle2D,
     keys?: any
-  ): void => {};
+  ): void => {}
 
   public onHandleHoverExit = (
     loc: cPoint2D,
     handle: foHandle2D,
     keys?: any
-  ): void => {};
+  ): void => {}
 
   public onTrackHandles = (
     loc: cPoint2D,
     handles: foCollection<foHandle2D>,
     keys?: any
-  ): void => {};
+  ): void => {}
 
   drawGrid(ctx: CanvasRenderingContext2D) {
     ctx.save();
@@ -837,7 +837,7 @@ export class foPage extends foShape2D {
         item.afterRender(ctx, deep);
       });
     ctx.restore();
-  };
+  }
 
   public render(ctx: CanvasRenderingContext2D, deep: boolean = true) {
     this._ctx = ctx;
@@ -865,14 +865,14 @@ export class foPage extends foShape2D {
   public preDraw = (ctx: CanvasRenderingContext2D): void => {
     ctx.fillStyle = this.color;
     ctx.fillRect(0, 0, this.width, this.height);
-  };
+  }
 
   public draw = (ctx: CanvasRenderingContext2D): void => {
     this.drawGrid(ctx);
     this.drawAxis(ctx);
     this.drawPage(ctx);
     this.drawPin(ctx);
-  };
+  }
 }
 
 RuntimeType.define(foPage);

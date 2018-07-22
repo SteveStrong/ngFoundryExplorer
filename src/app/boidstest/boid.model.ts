@@ -405,19 +405,19 @@ BoidStencil.define('Boid', Boid, {
   }
 });
 
-BoidStencil.define('Boid+', Boid, {}).mixin(core);
+// BoidStencil.define('Boid+', Boid, {}).mixin(core);
 
-BoidStencil.define('Boid++', Boid, {
-  color: 'green',
-  opacity: 0.5,
-  width: 30,
-  height: 30
-}).onCreation(obj => {
-  obj.color = Tools.randomRGBColor();
-  obj.h = Tools.random(0, 2 * Math.PI);
-  obj.s = Tools.random(1, 21);
-  obj.gap = Tools.random(25, 100);
-});
+// BoidStencil.define('Boid++', Boid, {
+//   color: 'green',
+//   opacity: 0.5,
+//   width: 30,
+//   height: 30
+// }).onCreation(obj => {
+//   obj.color = Tools.randomRGBColor();
+//   obj.h = Tools.random(0, 2 * Math.PI);
+//   obj.s = Tools.random(1, 21);
+//   obj.gap = Tools.random(25, 100);
+// });
 
 import { RuntimeType } from 'ngFoundryModels';
 import { foGlyph } from 'ngFoundryModels';
