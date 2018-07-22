@@ -71,7 +71,7 @@ export class BoidstestComponent implements OnInit, AfterViewInit  {
       const space = this.workspace;
       const boid = new Boid({width: 250, height: 100});
       space.activePage.addSubcomponent(boid);
-      boid.dropAt(600,300);
+      boid.dropAt(600, 300);
       //boidBehaviour.creatBoids(space.activePage, 1);
       this.doSetCurrentPage(this.currentDocument.currentPage);
     });
