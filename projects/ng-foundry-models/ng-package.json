@@ -4,5 +4,15 @@
   "deleteDestPath": false,
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "angular",
+    "@types/three",
+    "@types/greensock",
+    "rxjs",
+    "rxjs/operators",
+    "three",
+    "gsap",
+    "savery"
+  ]
 }

@@ -321,6 +321,13 @@ export class CustomOrbitControls extends EventDispatcher {
     // Set to false to disable use of the keys
     enableKeys = true;
 
+    // events
+
+    changeEvent = { type: 'change' };
+    startEvent = { type: 'start' };
+    endEvent = { type: 'end' };
+
+
     constructor(camera, domElement) {
         super()
         this.constraint = new OrbitConstraint(camera);
@@ -341,6 +348,10 @@ export class CustomOrbitControls extends EventDispatcher {
 
     }
 
+    dispatchEvent(event: any){
+      super.dispatchEvent(event);
+    }
+
     getPolarAngle() {
         return this.constraint.getPolarAngle();
     };
@@ -350,11 +361,6 @@ export class CustomOrbitControls extends EventDispatcher {
     };
 
 
-    // events
-
-    changeEvent = { type: 'change' };
-    startEvent = { type: 'start' };
-    endEvent = { type: 'end' };
 
     // pass in x,y of change desired in pixel space,
     // right and down are positive
@@ -394,7 +400,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
     onMouseDown(event) {
 
-        if (this.enabled === false) return;
+        if (this.enabled === false) { return; }
 
         event.preventDefault();
 
@@ -408,7 +414,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
         } else if (event.button === MOUSEBUTTONS.ZOOM) {
 
-            if (this.enableZoom === false) return;
+            if (this.enableZoom === false) { return; }
 
             this.state = STATE.DOLLY;
 
@@ -416,7 +422,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
         } else if (event.button === MOUSEBUTTONS.PAN) {
 
-            if (this.enablePan === false) return;
+            if (this.enablePan === false) { return; }
 
             this.state = STATE.PAN;
 
@@ -436,7 +442,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
     onMouseMove(event) {
 
-        if (this.enabled === false) return;
+        if (this.enabled === false) { return; }
 
         event.preventDefault();
 
@@ -444,7 +450,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
         if (this.state === STATE.ROTATE) {
 
-            if (this.enableRotate === false) return;
+            if (this.enableRotate === false) { return; }
 
             this.rotateEnd.set(event.clientX, event.clientY);
             this.rotateDelta.subVectors(this.rotateEnd, this.rotateStart);
@@ -459,7 +465,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
         } else if (this.state === STATE.DOLLY) {
 
-            if (this.enableZoom === false) return;
+            if (this.enableZoom === false) { return; }
 
             this.dollyEnd.set(event.clientX, event.clientY);
             this.dollyDelta.subVectors(this.dollyEnd, this.dollyStart);
@@ -478,7 +484,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
         } else if (this.state === STATE.PAN) {
 
-            if (this.enablePan === false) return;
+            if (this.enablePan === false) { return; }
 
             this.panEnd.set(event.clientX, event.clientY);
             this.panDelta.subVectors(this.panEnd, this.panStart);
@@ -497,7 +503,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
     onMouseUp( /* event */) {
 
-        if (this.enabled === false) return;
+        if (this.enabled === false) { return; }
 
         document.removeEventListener('mousemove', this.onMouseMove, false);
         document.removeEventListener('mouseup', this.onMouseUp, false);
@@ -508,7 +514,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
     onMouseWheel(event) {
 
-        if (this.enabled === false || this.enableZoom === false || this.state !== STATE.NONE) return;
+        if (this.enabled === false || this.enableZoom === false || this.state !== STATE.NONE) { return; }
 
         event.preventDefault();
         event.stopPropagation();
@@ -538,7 +544,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
     onKeyDown(event) {
 
-        if (this.enabled === false || this.enableKeys === false || this.enablePan === false) return;
+        if (this.enabled === false || this.enableKeys === false || this.enablePan === false) { return; }
 
         switch (event.keyCode) {
 
@@ -568,13 +574,13 @@ export class CustomOrbitControls extends EventDispatcher {
 
     touchstart(event) {
 
-        if (this.enabled === false) return;
+        if (this.enabled === false) { return; }
 
         switch (event.touches.length) {
 
             case 1:	// one-fingered touch: rotate
 
-                if (this.enableRotate === false) return;
+                if (this.enableRotate === false) { return; }
 
                 this.state = STATE.TOUCH_ROTATE;
 
@@ -583,7 +589,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
             case 2:	// two-fingered touch: dolly
 
-                if (this.enableZoom === false) return;
+                if (this.enableZoom === false) { return; }
 
                 this.state = STATE.TOUCH_DOLLY;
 
@@ -595,7 +601,7 @@ export class CustomOrbitControls extends EventDispatcher {
 
             case 3: // three-fingered touch: pan
 
-                if (this.enablePan === false) return;
+                if (this.enablePan === false) { return; }
 
                 this.state = STATE.TOUCH_PAN;
 
@@ -608,13 +614,13 @@ export class CustomOrbitControls extends EventDispatcher {
 
         }
 
-        if (this.state !== STATE.NONE) this.dispatchEvent(this.startEvent);
+        if (this.state !== STATE.NONE) { this.dispatchEvent(this.startEvent); }
 
     }
 
     touchmove(event) {
 
-        if (this.enabled === false) return;
+        if (this.enabled === false) { return; }
 
         event.preventDefault();
         event.stopPropagation();
@@ -625,8 +631,8 @@ export class CustomOrbitControls extends EventDispatcher {
 
             case 1: // one-fingered touch: rotate
 
-                if (this.enableRotate === false) return;
-                if (this.state !== STATE.TOUCH_ROTATE) return;
+                if (this.enableRotate === false) { return; }
+                if (this.state !== STATE.TOUCH_ROTATE) { return; }
 
                 this.rotateEnd.set(event.touches[0].pageX, event.touches[0].pageY);
                 this.rotateDelta.subVectors(this.rotateEnd, this.rotateStart);
@@ -643,8 +649,8 @@ export class CustomOrbitControls extends EventDispatcher {
 
             case 2: // two-fingered touch: dolly
 
-                if (this.enableZoom === false) return;
-                if (this.state !== STATE.TOUCH_DOLLY) return;
+                if (this.enableZoom === false) { return; }
+                if (this.state !== STATE.TOUCH_DOLLY) { return; }
 
                 let dx = event.touches[0].pageX - event.touches[1].pageX;
                 let dy = event.touches[0].pageY - event.touches[1].pageY;
@@ -670,8 +676,8 @@ export class CustomOrbitControls extends EventDispatcher {
 
             case 3: // three-fingered touch: pan
 
-                if (this.enablePan === false) return;
-                if (this.state !== STATE.TOUCH_PAN) return;
+                if (this.enablePan === false) { return; }
+                if (this.state !== STATE.TOUCH_PAN) { return; }
 
                 this.panEnd.set(event.touches[0].pageX, event.touches[0].pageY);
                 this.panDelta.subVectors(this.panEnd, this.panStart);
@@ -692,7 +698,7 @@ export class CustomOrbitControls extends EventDispatcher {
     }
 
     touchend( /* event */) {
-        if (this.enabled === false) return;
+        if (this.enabled === false) { return; }
 
         this.dispatchEvent(this.endEvent);
         this.state = STATE.NONE;

@@ -1,4 +1,6 @@
-import { Tools, foObject, Action } from '../../foundry';
+import { Tools } from '../foTools';
+import { foObject } from '../foObject.model';
+import { Action } from '../foInterface';
 
 import { foGlyph2D } from '../shapes/foGlyph2D.model';
 import { foShape2D } from '../shapes/foShape2D.model';

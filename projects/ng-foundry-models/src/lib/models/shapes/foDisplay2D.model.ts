@@ -11,7 +11,7 @@ import { foNode } from '../foNode.model';
 import { foConcept } from '../foConcept.model';
 import { foGlyph2D } from './foGlyph2D.model';
 
-import { foShape2D } from './foShape2D.model'
+import { foShape2D } from './foShape2D.model';
 
 //a Glyph is a graphic designed to draw on a canvas in absolute coordinates
 export class foDisplay2D extends foShape2D {
@@ -41,12 +41,6 @@ export class foDisplay2D extends foShape2D {
     }
 
 
-	/**
-	 * Applies this display object's transformation, alpha, globalCompositeOperation, clipping path (mask), and shadow
-	 * to the specified context. This is typically called prior to "DisplayObject/draw".
-	 * @method updateContext
-	 * @param {CanvasRenderingContext2D} ctx The canvas 2D to update.
-	 **/
     updateContext(ctx: CanvasRenderingContext2D) {
 
         let mtx = this.getMatrix();

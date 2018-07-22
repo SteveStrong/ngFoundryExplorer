@@ -1,11 +1,13 @@
 
 import { iPoint2D, iRect, iBox, iMargin, iFrame } from '../foInterface';
-import { Vector2 } from 'three';
+import { Vector2, Matrix3 } from 'three';
 export { Vector2, Matrix3 } from 'three';
 
 export class cPoint2D extends Vector2 implements iPoint2D {
 
     public myName: string;
+    public x: number;
+    public y: number;
 
     constructor(x: number = 0, y: number = 0, name?: string) {
         super(x, y);
@@ -32,10 +34,10 @@ export class cPoint2D extends Vector2 implements iPoint2D {
 
     isNear(p: cPoint2D, radius: number): boolean {
         const dx = Math.abs(p.x - this.x);
-        if (dx > radius) return false;
+        if (dx > radius) { return false; }
 
         const dy = Math.abs(p.y - this.y);
-        if (dy > radius) return false;
+        if (dy > radius) { return false; }
         return true;
 
     }

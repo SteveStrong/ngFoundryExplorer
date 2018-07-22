@@ -14,6 +14,9 @@ export * from './foDictionary.model';
 export * from './foCollection.model';
 export * from './foRuntimeType';
 export * from './foNode.model';
+export * from './foGlyph.model';
 
 export * from './foLifecycle';
 export * from './foLibrary.model';
+export * from './foStencil';
+export * from './foController';

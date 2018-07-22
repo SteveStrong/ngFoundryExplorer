@@ -1,5 +1,5 @@
 //import { Tools } from './foTools'
-import { Action, Spec } from '../foundry/foInterface';
+import { Action, Spec } from '../models/foInterface';
 
 
 import { foKnowledge } from './foKnowledge.model';

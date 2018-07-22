@@ -2,8 +2,8 @@ import { Action } from './foInterface';
 import { foObject } from './foObject.model';
 import { Tools } from './foTools';
 
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+// https://github.com/ReactiveX/rxjs/blob/master/docs_app/content/guide/v6/migration.md
+import { Observable, Subject } from 'rxjs';
 import { debounceTime, filter } from 'rxjs/operators';
 
 let counter = 0;
