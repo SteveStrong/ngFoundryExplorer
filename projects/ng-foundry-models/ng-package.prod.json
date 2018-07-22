@@ -1,0 +1,18 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/ng-foundry-models",
+  "lib": {
+    "entryFile": "src/public_api.ts"
+  },
+  "whitelistedNonPeerDependencies": [
+    "angular",
+    "@types/three",
+    "@types/greensock",
+    "rxjs",
+    "rxjs/operators",
+    "three",
+    "gsap",
+    "savery"
+  ]
+
+}
