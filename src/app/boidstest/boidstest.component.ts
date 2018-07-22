@@ -51,17 +51,8 @@ export class BoidstestComponent implements OnInit, AfterViewInit  {
     space.stencil.add(BoidStencil);
     space.controller.add(boidBehaviour);
 
-    boidBehaviour.addCommands(
-      new foCommand('100++', () => {
-        boidBehaviour.creatBoids(space.activePage, 100);
-      })
-    );
+    boidBehaviour.creatBoids(space.activePage, 100);
 
-    boidBehaviour.addCommands(
-      new foCommand('+1', () => {
-        boidBehaviour.creatBoids(space.activePage, 1);
-      }),
-    );
 
     this.currentDocument = this.workspace.document.override({
       pageWidth: this.pageWidth,
