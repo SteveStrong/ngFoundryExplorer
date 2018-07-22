@@ -1,7 +1,7 @@
 import { Tools } from '../foTools';
 import { cPoint2D, cFrame } from './foGeometry2D';
 import { Matrix2D } from './foMatrix2D';
-import { TweenLite, Back } from 'gsap';
+// import { TweenLite, Back } from 'gsap';
 
 import { iShape, iPoint2D, iRect, iFrame } from '../foInterface';
 import { foGlyph } from '../foGlyph.model';
@@ -179,53 +179,77 @@ foGlyph2D extends foGlyph implements iShape {
   public easeToNoLifecycle(
     x: number,
     y: number,
-    time: number = 0.5,
-    ease: any = Back.easeInOut
-  ) {
-    TweenLite.to(this, time, {
-      x: x,
-      y: y,
-      ease: ease
-      // }).eventCallback("onUpdate", () => {
-      //     this.drop();
-    }).eventCallback('onComplete', () => {
-      this.initialize(x, y);
-    });
-
+  )
+  {
+    this.initialize(x, y);
     return this;
   }
+
+  // public easeToNoLifecycle(
+  //   x: number,
+  //   y: number,
+  //   time: number = 0.5,
+  //   ease: any = Back.easeInOut
+  // ) {
+  //   TweenLite.to(this, time, {
+  //     x: x,
+  //     y: y,
+  //     ease: ease
+  //     // }).eventCallback("onUpdate", () => {
+  //     //     this.drop();
+  //   }).eventCallback('onComplete', () => {
+  //     this.initialize(x, y);
+  //   });
+
+  //   return this;
+  // }
 
   public easeTo(
     x: number,
     y: number,
-    time: number = 0.5,
-    ease: any = Back.easeInOut
-  ) {
-    TweenLite.to(this, time, {
-      x: x,
-      y: y,
-      ease: ease
-    })
-      .eventCallback('onUpdate', () => {
-        this.move();
-      })
-      .eventCallback('onComplete', () => {
-        this.dropAt(x, y);
-        Lifecycle.easeTo(this, this.getLocation());
-      });
-
+  )
+  {
+    this.initialize(x, y);
     return this;
   }
 
-  public easeTween(to: any, time: number = 0.5, ease: any = 'ease') {
-    const from = Tools.union(to, { ease: Back[ease] });
+  // public easeTo(
+  //   x: number,
+  //   y: number,
+  //   time: number = 0.5,
+  //   ease: any = Back.easeInOut
+  // ) {
+  //   TweenLite.to(this, time, {
+  //     x: x,
+  //     y: y,
+  //     ease: ease
+  //   })
+  //     .eventCallback('onUpdate', () => {
+  //       this.move();
+  //     })
+  //     .eventCallback('onComplete', () => {
+  //       this.dropAt(x, y);
+  //       Lifecycle.easeTo(this, this.getLocation());
+  //     });
 
-    TweenLite.to(this, time, from).eventCallback('onComplete', () =>
-      this.override(to)
-    );
-    Lifecycle.easeTween(this, { time, ease, to });
+  //   return this;
+  // }
+
+  public easeTween(to: any, time: number = 0.5)
+  {
+    Lifecycle.easeTween(this, { time, undefined, to });
     return this;
   }
+
+  // public easeTween(to: any, time: number = 0.5, ease: any = 'ease') {
+  //   const from = Tools.union(to, { ease: Back[ease] });
+
+  //   TweenLite.to(this, time, from).eventCallback('onComplete', () =>
+  //     this.override(to)
+  //   );
+  //   Lifecycle.easeTween(this, { time, ease, to });
+  //   return this;
+  // }
 
   public dropAt(
     x: number = Number.NaN,

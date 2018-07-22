@@ -7,10 +7,12 @@
   "whitelistedNonPeerDependencies": [
     "angular",
     "@types/three",
+    "@types/greensock",
     "rxjs",
     "rxjs/operators",
     "three",
     "gsap",
     "savery"
   ]
+
 }
