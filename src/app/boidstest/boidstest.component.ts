@@ -2,7 +2,7 @@ import { Component, OnInit,Input, ViewChild, ElementRef, AfterViewInit } from '@
 
 import { Tools, Screen2D, foPage, foDocument, foWorkspace, foModel, foCommand } from 'ngFoundryModels';
 
-import {  boidBehaviour, Boid } from './boid.model';
+import {  boidBehaviour, Boid, boidController } from './boid.model';
 
 @Component({
   selector: 'app-boidstest',
@@ -69,10 +69,15 @@ export class BoidstestComponent implements OnInit, AfterViewInit  {
 
     setTimeout(_ => {
       const space = this.workspace;
-      const boid = new Boid({width: 250, height: 100});
-      space.activePage.addSubcomponent(boid);
-      boid.dropAt(600, 300);
-      //boidBehaviour.creatBoids(space.activePage, 1);
+      const controller: boidController = new boidController();
+      controller.creatBoids(space.activePage, 27);
+
+      // for (let i = 0; i < 20; i++ ){
+      //   const boid = new Boid({width: 50, height: 50});
+      //   space.activePage.addSubcomponent(boid);
+      //   boid.dropAt(600, 300);
+      // }
+      // //boidBehaviour.creatBoids(space.activePage, 1);
       this.doSetCurrentPage(this.currentDocument.currentPage);
     });
   }
