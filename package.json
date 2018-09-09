@@ -2,7 +2,7 @@
   "name": "ng-foundry-explorer",
   "version": "0.0.0",
   "scripts": {
-    "buildlib": "ng build projects/ng-foundry --prod",
+    "buildlib": "ng build projects/ng-foundry-models --prod",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
