@@ -21,9 +21,6 @@ import { BoidstestComponent } from './boidstest/boidstest.component';
     WelcomeComponent,
     BoidstestComponent
   ],
-  exports: [
-    NgFoundryModelsModule
-  ],
   imports: [
     NgFoundryModelsModule,
     NgbModule.forRoot(),

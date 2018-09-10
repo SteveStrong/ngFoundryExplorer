@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { NgFoundryModelsComponent } from './ng-foundry-models.component';
 
 @NgModule({
-  imports: [
-  ],
+  imports: [],
   declarations: [NgFoundryModelsComponent],
   exports: [NgFoundryModelsComponent]
 })
-export class NgFoundryModelsModule { }
+export class NgFoundryModelsModule {}

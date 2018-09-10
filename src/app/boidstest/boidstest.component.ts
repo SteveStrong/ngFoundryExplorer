@@ -1,6 +1,6 @@
 import { Component, OnInit,Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
-import { Tools, Screen2D, foPage, foDocument, foWorkspace, foModel, foCommand } from 'ngFoundryModels';
+import { Tools, Screen2D, foPage, foDocument, foWorkspace, foModel, foCommand } from 'ng-foundry-models';
 
 import {  boidBehaviour, Boid } from './boid.model';
 

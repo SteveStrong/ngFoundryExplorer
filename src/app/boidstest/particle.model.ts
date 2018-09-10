@@ -1,11 +1,11 @@
-import { Tools } from 'ngFoundryModels';
+import { Tools } from 'ng-foundry-models';
 
 
-import { foShape2D } from 'ngFoundryModels';
-import { foStencilLibrary } from 'ngFoundryModels';
+import { foShape2D } from 'ng-foundry-models';
+import { foStencilLibrary } from 'ng-foundry-models';
 
 export let ParticleStencil: foStencilLibrary = new foStencilLibrary().defaultName('Particle');
-export { foShape2D } from 'ngFoundryModels';
+export { foShape2D } from 'ng-foundry-models';
 
 export class particle extends foShape2D {
 
@@ -122,6 +122,6 @@ ParticleStencil.define<foShape2D>('engine', particleEngine, {
 }).addCommands('doStart', 'doStop', 'doRotate');
 
 
-import { RuntimeType } from 'ngFoundryModels';
+import { RuntimeType } from 'ng-foundry-models';
 RuntimeType.define(particleEngine);
 

@@ -17,10 +17,10 @@
       "dom"
     ],
     "paths": {
-      "ngFoundryModels": [
+      "ng-foundry-models": [
         "dist/ng-foundry-models"
       ],
-      "ngFoundryModels/*": [
+      "ng-foundry-models/*": [
         "dist/ng-foundry-models/*"
       ]
     }

@@ -419,6 +419,6 @@ BoidStencil.define('Boid', Boid, {
 //   obj.gap = Tools.random(25, 100);
 // });
 
-import { RuntimeType } from 'ngFoundryModels';
-import { foGlyph } from 'ngFoundryModels';
+import { RuntimeType } from 'ng-foundry-models';
+import { foGlyph } from 'ng-foundry-models';
 RuntimeType.define(Boid);

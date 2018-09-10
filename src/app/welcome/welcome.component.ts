@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import {  foConcept, foNode } from 'NgFoundryModelsModule';
+import {  foConcept, foNode } from 'ng-foundry-models';
 
 //import { Toast } from '../common/emitter.service';
 //import { SignalRService } from "../common/signalr.service";
