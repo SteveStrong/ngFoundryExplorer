@@ -49,7 +49,7 @@ export class foGlyph3D extends foGlyph {
 
     get x(): number { return this._x || 0.0; }
     set x(value: number) {
-        value != this._x && this.clearMesh();
+        value !== this._x && this.clearMesh();
         this._x = value;
     }
     get y(): number { return this._y || 0.0; }
@@ -103,9 +103,9 @@ export class foGlyph3D extends foGlyph {
         this._angleZ = value;
     }
 
-    public rotationX = (): number => { return this.angleX; };
-    public rotationY = (): number => { return this.angleY; };
-    public rotationZ = (): number => { return this.angleZ; };
+    public rotationX = (): number => this.angleX;
+    public rotationY = (): number => this.angleY;
+    public rotationZ = (): number => this.angleZ;
 
 
     constructor(properties?: any, subcomponents?: Array<foGlyph3D>, parent?: foObject) {
@@ -210,10 +210,10 @@ export class foGlyph3D extends foGlyph {
     }
     set mesh(value: Mesh) { this._mesh = value; }
     get hasMesh(): boolean {
-        return this._mesh != undefined;
+        return this._mesh !== undefined;
     }
     removeMesh(deep: boolean = false) {
-        if (!this._mesh) return;
+        if (!this._mesh) { return; }
 
         // also think about handles and connection points
         deep && this.nodes.forEach(child => {
@@ -227,7 +227,7 @@ export class foGlyph3D extends foGlyph {
         this._mesh = undefined;
     }
     clearMesh(deep: boolean = false) {
-        if (!this._mesh) return;
+        if (!this._mesh) { return; }
 
         // also think about handles and connection points
         deep && this.nodes.forEach(child => {
@@ -348,7 +348,7 @@ export class foGlyph3D extends foGlyph {
     preDraw3D: (screen: Screen3D) => void;
 
     draw3D = (screen: Screen3D, deep: boolean = true) => {
-        if (!this.hasMesh) return;
+        if (!this.hasMesh) { return; }
         this.setMeshMatrix(this.mesh);
     }
 
@@ -425,8 +425,8 @@ export class foGlyph3D extends foGlyph {
         let d = this.depth / 2;
 
         let spec = [
-            { x: -w, y: -h, z: -d, myName: "0:0:0", myType: RuntimeType.define(foHandle3D) },
-            { x: w, y: -h, z: -d, myName: "W:0:0" },
+            { x: -w, y: -h, z: -d, myName: '0:0:0', myType: RuntimeType.define(foHandle3D) },
+            { x: w, y: -h, z: -d, myName: 'W:0:0' },
             { x: w, y: h, z: -d, myName: 'W:H:0' },
             { x: -w, y: h, z: -d, myName: '0:H:0' },
 
@@ -447,7 +447,7 @@ export class foGlyph3D extends foGlyph {
     public findHandle(loc: cPoint3D, e): foHandle3D {
         if (!this._handles) { return; }
 
-        for (var i = 0; i < this.handles.length; i++) {
+        for (let i = 0; i < this.handles.length; i++) {
             let handle: foHandle3D = this.handles.getChildAt(i);
             if (handle.hitTest(loc)) {
                 return handle;

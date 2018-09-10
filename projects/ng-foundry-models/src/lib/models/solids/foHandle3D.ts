@@ -1,4 +1,4 @@
-import { Tools } from '../foTools'
+import { Tools } from '../foTools';
 import { Matrix4, Vector3, MeshMaterial, Material, Geometry, BoxGeometry, MeshBasicMaterial, Mesh } from 'three';
 
 import { cPoint3D } from './foGeometry3D';
@@ -31,11 +31,11 @@ export class foHandle3D extends foHandle {
     set x(value: number) {
         this._x = value;
     }
-    get y(): number { return this._y || 0.0 }
+    get y(): number { return this._y || 0.0; }
     set y(value: number) {
         this._y = value;
     }
-    get z(): number { return this._z || 0.0 }
+    get z(): number { return this._z || 0.0; }
     set z(value: number) {
         this._z = value;
     }
@@ -70,7 +70,7 @@ export class foHandle3D extends foHandle {
             opacity: this.opacity,
             transparent: this.opacity < 1 ? true : false,
             wireframe: false
-        }, spec)
+        }, spec);
         return new MeshBasicMaterial(props);
     }
 
@@ -90,10 +90,10 @@ export class foHandle3D extends foHandle {
     }
     set mesh(value: Mesh) { this._mesh = value; }
     get hasMesh(): boolean {
-        return this._mesh != undefined
+        return this._mesh !== undefined;
     }
     clearMesh() {
-        if (!this._mesh) return;
+        if (!this._mesh) { return; }
         let parent = this.mesh.parent;
         if (parent) {
             parent.remove(this.mesh);
@@ -105,9 +105,9 @@ export class foHandle3D extends foHandle {
 
 
     public dropAt(x: number = Number.NaN, y: number = Number.NaN, z: number = Number.NaN) {
-        if (!Number.isNaN(x)) this.x = x;
-        if (!Number.isNaN(y)) this.y = y;
-        if (!Number.isNaN(z)) this.z = z;
+        if (!Number.isNaN(x)) { this.x = x; }
+        if (!Number.isNaN(y)) { this.y = y; }
+        if (!Number.isNaN(z)) { this.z = z; }
         return this;
     }
 
@@ -116,7 +116,7 @@ export class foHandle3D extends foHandle {
         //let y = loc.y + (offset ? offset.y : 0);
 
         this.doMoveProxy && this.doMoveProxy(loc);
-        BroadcastChange.moved(this, loc)
+        BroadcastChange.moved(this, loc);
         Lifecycle.handle(this, loc);
         return this;
     }
@@ -142,35 +142,35 @@ export class foHandle3D extends foHandle {
     getGlobalMatrix(): Matrix4 {
         let mat = this.mesh.matrixWorld;
         return mat;
-    };
+    }
 
     getGlobalInvMatrix(): Matrix4 {
         let mat = this.getGlobalMatrix();
         mat = mat.getInverse(mat);
         return mat;
-    };
+    }
 
     getMatrix(): Matrix4 {
         return this.mesh.matrix;
-    };
+    }
 
     getInvMatrix(): Matrix4 {
         let mat = this.getMatrix();
         mat = mat.getInverse(mat);
         return mat;
-    };
+    }
 
     localToGlobal(pt: Vector3): Vector3 {
         let mat = this.getGlobalMatrix();
         let vec = mat.multiplyVector3(pt);
         return vec;
-    };
+    }
 
     globalToLocal(pt: Vector3): Vector3 {
         let inv = this.getGlobalMatrix();
         let vec = inv.multiplyVector3(pt);
         return vec;
-    };
+    }
 
     getGlobalPosition(pt?: Vector3): Vector3 {
         this.mesh.updateMatrix();
@@ -222,7 +222,7 @@ export class foHandle3D extends foHandle {
                 mesh.name = this.myGuid;
                 let parent = this.myParent() as foGlyph3D;
                 if (parent && parent.hasMesh) {
-                    parent.mesh.add(mesh)
+                    parent.mesh.add(mesh);
                 } else {
                     //this should NEVER be the case
                     screen.addToScene(mesh);
@@ -233,7 +233,7 @@ export class foHandle3D extends foHandle {
 
                 this.preDraw3D = undefined;
             }
-        }
+        };
 
         this.preDraw3D = preDraw;
     }
@@ -241,14 +241,14 @@ export class foHandle3D extends foHandle {
     preDraw3D: (screen: Screen3D) => void;
 
     draw3D = (screen: Screen3D, deep: boolean = true) => {
-        if (!this.hasMesh) return;
+        if (!this.hasMesh) { return; }
         let obj = this.mesh;
         obj.position.set(this.x, this.y, this.z);
-    };
+    }
 
     render3D = (screen: Screen3D, deep: boolean = true) => {
-        this.preDraw3D && this.preDraw3D(screen)
-        this.draw3D && this.draw3D(screen)
+        this.preDraw3D && this.preDraw3D(screen);
+        this.draw3D && this.draw3D(screen);
     }
 
 }
