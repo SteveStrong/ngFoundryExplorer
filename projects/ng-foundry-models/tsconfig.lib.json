@@ -12,7 +12,6 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "types": [
-      "../src/public_api.ts"
     ],
     "lib": [
       "dom",

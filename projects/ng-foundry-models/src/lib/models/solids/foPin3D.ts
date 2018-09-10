@@ -1,5 +1,5 @@
 import { Tools } from '../foTools';
-import { Vector3, Geometry, Material, SphereGeometry, Mesh, MeshBasicMaterial } from 'three';
+import { Vector3, Geometry, MeshMaterial, Material, SphereGeometry, Mesh, MeshBasicMaterial } from 'three';
 
 import { foObject } from '../foObject.model';
 
@@ -40,15 +40,15 @@ export class foPin3D extends foHandle3D {
     constructor(properties?: any, subcomponents?: Array<foHandle3D>, parent?: foObject) {
         super(properties, subcomponents, parent);
 
-        this.setupPreDraw()
+        this.setupPreDraw();
     }
 
     geometry = (spec?: any): Geometry => {
         return new SphereGeometry(this.size);
     }
 
-    
-    material = (spec?: any): Material => {
+
+    material = (spec?: any): MeshMaterial => {
         let props = Tools.mixin({
             color: this.color,
             transparent: false,

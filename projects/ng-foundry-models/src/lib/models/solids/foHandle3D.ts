@@ -1,5 +1,5 @@
 import { Tools } from '../foTools'
-import { Matrix4, Vector3, Material, Geometry, BoxGeometry, MeshBasicMaterial, Mesh } from 'three';
+import { Matrix4, Vector3, MeshMaterial, Material, Geometry, BoxGeometry, MeshBasicMaterial, Mesh } from 'three';
 
 import { cPoint3D } from './foGeometry3D';
 
@@ -48,7 +48,7 @@ export class foHandle3D extends foHandle {
             name: this.myName,
             color: this.color,
             size: this.size,
-            posW: this.mesh.getWorldPosition()
+            posW: this.mesh.getWorldPosition(new Vector3())
         });
     }
 
@@ -64,7 +64,7 @@ export class foHandle3D extends foHandle {
         return new BoxGeometry(this.size, this.size, this.size);
     }
 
-    material = (spec?: any): Material => {
+    material = (spec?: any): MeshMaterial => {
         let props = Tools.mixin({
             color: this.color,
             opacity: this.opacity,
@@ -78,8 +78,8 @@ export class foHandle3D extends foHandle {
     protected _mesh: Mesh;
     get mesh(): Mesh {
         if (!this._mesh) {
-            let geom = this.geometry()
-            let mat = this.material()
+            let geom = this.geometry();
+            let mat = this.material();
             let obj = (geom && mat) && new Mesh(geom, mat);
             if (obj) {
                 obj.position.set(this.x, this.y, this.z);

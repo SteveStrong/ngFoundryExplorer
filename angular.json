@@ -124,7 +124,7 @@
         }
       }
     },
-    "ngFoundryModels": {
+    "ng-foundry-models": {
       "root": "projects/ng-foundry-models",
       "sourceRoot": "projects/ng-foundry-models/src",
       "projectType": "library",
