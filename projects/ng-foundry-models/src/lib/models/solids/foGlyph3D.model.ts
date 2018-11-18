@@ -1,4 +1,4 @@
-import { Matrix4, Material, Geometry, BoxGeometry, MeshBasicMaterial, Mesh, Vector3 } from 'three';
+import { Matrix4, MeshMaterial,  Material, Geometry, BoxGeometry, MeshBasicMaterial, Mesh, Vector3 } from 'three';
 
 import { Tools } from '../foTools';
 import { cPoint3D } from './foGeometry3D';
@@ -49,63 +49,63 @@ export class foGlyph3D extends foGlyph {
 
     get x(): number { return this._x || 0.0; }
     set x(value: number) {
-        value != this._x && this.clearMesh();
+        value !== this._x && this.clearMesh();
         this._x = value;
     }
     get y(): number { return this._y || 0.0; }
     set y(value: number) {
-        value != this._y && this.clearMesh();
+        value !== this._y && this.clearMesh();
         this._y = value;
     }
 
     get z(): number { return this._z || 0.0; }
     set z(value: number) {
-        value != this._z && this.clearMesh();
+        value !== this._z && this.clearMesh();
         this._z = value;
     }
 
     get width(): number { return this._width || 0.0; }
     set width(value: number) {
-        value != this._width && this.clearMesh();
+        value !== this._width && this.clearMesh();
         this._width = value;
     }
 
     get height(): number { return this._height || 0.0; }
     set height(value: number) {
-        value != this._height && this.clearMesh();
+        value !== this._height && this.clearMesh();
         this._height = value;
     }
 
     get depth(): number { return this._depth || 0.0; }
     set depth(value: number) {
-        value != this._depth && this.clearMesh();
+        value !== this._depth && this.clearMesh();
         this._depth = value;
     }
 
     protected _angleX: number;
     get angleX(): number { return this._angleX || 0.0; }
     set angleX(value: number) {
-        value != this._angleX && this.clearMesh();
+        value !== this._angleX && this.clearMesh();
         this._angleX = value;
     }
 
     protected _angleY: number;
     get angleY(): number { return this._angleY || 0.0; }
     set angleY(value: number) {
-        value != this._angleY && this.clearMesh();
+        value !== this._angleY && this.clearMesh();
         this._angleY = value;
     }
 
     protected _angleZ: number;
     get angleZ(): number { return this._angleZ || 0.0; }
     set angleZ(value: number) {
-        value != this._angleZ && this.clearMesh();
+        value !== this._angleZ && this.clearMesh();
         this._angleZ = value;
     }
 
-    public rotationX = (): number => { return this.angleX; };
-    public rotationY = (): number => { return this.angleY; };
-    public rotationZ = (): number => { return this.angleZ; };
+    public rotationX = (): number => this.angleX;
+    public rotationY = (): number => this.angleY;
+    public rotationZ = (): number => this.angleZ;
 
 
     constructor(properties?: any, subcomponents?: Array<foGlyph3D>, parent?: foObject) {
@@ -117,17 +117,17 @@ export class foGlyph3D extends foGlyph {
 
     public didLocationChange(x: number = Number.NaN, y: number = Number.NaN, z: number = Number.NaN): boolean {
         let changed = false;
-        if (!Number.isNaN(x) && this.x != x) {
+        if (!Number.isNaN(x) && this.x !== x) {
             changed = true;
             this.x = x;
         }
 
-        if (!Number.isNaN(y) && this.y != y) {
+        if (!Number.isNaN(y) && this.y !== y) {
             changed = true;
             this.y = y;
         }
 
-        if (!Number.isNaN(z) && this.z != z) {
+        if (!Number.isNaN(z) && this.z !== z) {
             changed = true;
             this.z = z;
         }
@@ -177,7 +177,7 @@ export class foGlyph3D extends foGlyph {
         return new BoxGeometry(this.width, this.height, this.depth);
     }
 
-    material = (spec?: any): Material => {
+    material = (spec?: any): MeshMaterial => {
         let props = Tools.mixin({
             color: this.color,
             opacity: this.opacity,
@@ -210,10 +210,10 @@ export class foGlyph3D extends foGlyph {
     }
     set mesh(value: Mesh) { this._mesh = value; }
     get hasMesh(): boolean {
-        return this._mesh != undefined;
+        return this._mesh !== undefined;
     }
     removeMesh(deep: boolean = false) {
-        if (!this._mesh) return;
+        if (!this._mesh) { return; }
 
         // also think about handles and connection points
         deep && this.nodes.forEach(child => {
@@ -227,7 +227,7 @@ export class foGlyph3D extends foGlyph {
         this._mesh = undefined;
     }
     clearMesh(deep: boolean = false) {
-        if (!this._mesh) return;
+        if (!this._mesh) { return; }
 
         // also think about handles and connection points
         deep && this.nodes.forEach(child => {
@@ -348,7 +348,7 @@ export class foGlyph3D extends foGlyph {
     preDraw3D: (screen: Screen3D) => void;
 
     draw3D = (screen: Screen3D, deep: boolean = true) => {
-        if (!this.hasMesh) return;
+        if (!this.hasMesh) { return; }
         this.setMeshMatrix(this.mesh);
     }
 
@@ -425,8 +425,8 @@ export class foGlyph3D extends foGlyph {
         let d = this.depth / 2;
 
         let spec = [
-            { x: -w, y: -h, z: -d, myName: "0:0:0", myType: RuntimeType.define(foHandle3D) },
-            { x: w, y: -h, z: -d, myName: "W:0:0" },
+            { x: -w, y: -h, z: -d, myName: '0:0:0', myType: RuntimeType.define(foHandle3D) },
+            { x: w, y: -h, z: -d, myName: 'W:0:0' },
             { x: w, y: h, z: -d, myName: 'W:H:0' },
             { x: -w, y: h, z: -d, myName: '0:H:0' },
 
@@ -447,7 +447,7 @@ export class foGlyph3D extends foGlyph {
     public findHandle(loc: cPoint3D, e): foHandle3D {
         if (!this._handles) { return; }
 
-        for (var i = 0; i < this.handles.length; i++) {
+        for (let i = 0; i < this.handles.length; i++) {
             let handle: foHandle3D = this.handles.getChildAt(i);
             if (handle.hitTest(loc)) {
                 return handle;

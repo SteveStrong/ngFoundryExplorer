@@ -1,5 +1,5 @@
 import { Tools } from '../foTools';
-import { Vector3, Geometry, Material, SphereGeometry, Mesh, MeshBasicMaterial } from 'three';
+import { Vector3, Geometry, MeshMaterial, Material, SphereGeometry, Mesh, MeshBasicMaterial } from 'three';
 
 import { foObject } from '../foObject.model';
 
@@ -27,9 +27,9 @@ export class foPin3D extends foHandle3D {
         this._angleZ = value;
     }
 
-    public rotationX = (): number => { return this.angleX; }
-    public rotationY = (): number => { return this.angleY; }
-    public rotationZ = (): number => { return this.angleZ; }
+    public rotationX = (): number => this.angleX;
+    public rotationY = (): number => this.angleY;
+    public rotationZ = (): number => this.angleZ;
 
     get color(): string {
         return this._color || 'pink';
@@ -40,27 +40,27 @@ export class foPin3D extends foHandle3D {
     constructor(properties?: any, subcomponents?: Array<foHandle3D>, parent?: foObject) {
         super(properties, subcomponents, parent);
 
-        this.setupPreDraw()
+        this.setupPreDraw();
     }
 
     geometry = (spec?: any): Geometry => {
         return new SphereGeometry(this.size);
     }
 
-    
-    material = (spec?: any): Material => {
+
+    material = (spec?: any): MeshMaterial => {
         let props = Tools.mixin({
             color: this.color,
             transparent: false,
             wireframe: false
-        }, spec)
+        }, spec);
         return new MeshBasicMaterial(props);
     }
 
     get mesh(): Mesh {
         if (!this._mesh) {
-            let geom = this.geometry()
-            let mat = this.material()
+            let geom = this.geometry();
+            let mat = this.material();
             let obj = (geom && mat) && new Mesh(geom, mat);
             if (obj) {
                 obj.position.set(this.x, this.y, this.z);
@@ -81,22 +81,22 @@ export class foPin3D extends foHandle3D {
 
 
     public dropAt(x: number = Number.NaN, y: number = Number.NaN, z: number = Number.NaN) {
-        if (!Number.isNaN(x)) this.x = x;
-        if (!Number.isNaN(y)) this.y = y;
-        if (!Number.isNaN(z)) this.z = z;
+        if (!Number.isNaN(x)) { this.x = x; }
+        if (!Number.isNaN(y)) { this.y = y; }
+        if (!Number.isNaN(z)) { this.z = z; }
         return this;
     }
 
     draw3D = (screen: Screen3D, deep: boolean = true) => {
         let obj = this.mesh;
-        if (!obj) return;
+        if (!obj) { return; }
         obj.position.set(this.x, this.y, this.z);
         obj.rotation.set(this.angleX, this.angleY, this.angleZ);
-    };
+    }
 
     render3D = (screen: Screen3D, deep: boolean = true) => {
-        this.preDraw3D && this.preDraw3D(screen)
-        this.draw3D && this.draw3D(screen)
+        this.preDraw3D && this.preDraw3D(screen);
+        this.draw3D && this.draw3D(screen);
     }
 
 

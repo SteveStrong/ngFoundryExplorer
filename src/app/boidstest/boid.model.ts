@@ -1,19 +1,19 @@
-import { Tools } from 'ngFoundryModels';
+import { Tools } from 'ng-foundry-models';
 
-import { iPoint2D, Action } from 'ngFoundryModels';
-import { cPoint2D } from 'ngFoundryModels';
-import { foGlyph2D } from 'ngFoundryModels';
+import { iPoint2D, Action } from 'ng-foundry-models';
+import { cPoint2D } from 'ng-foundry-models';
+import { foGlyph2D } from 'ng-foundry-models';
 
-import { foShape2D } from 'ngFoundryModels';
-import { foStencilLibrary } from 'ngFoundryModels';
-import { foCollection } from 'ngFoundryModels';
-import { foController, foToggle } from 'ngFoundryModels';
+import { foShape2D } from 'ng-foundry-models';
+import { foStencilLibrary } from 'ng-foundry-models';
+import { foCollection } from 'ng-foundry-models';
+import { foController, foToggle } from 'ng-foundry-models';
 
 export let BoidStencil: foStencilLibrary = new foStencilLibrary().defaultName(
   'Boids'
 );
-export { foShape2D } from 'ngFoundryModels';
-import { foPage } from 'ngFoundryModels';
+export { foShape2D } from 'ng-foundry-models';
+import { foPage } from 'ng-foundry-models';
 
 export let globalBoidList: foCollection<boidMixin> = new foCollection<boidMixin>().setName('All Boids');
 // http://www.kfish.org/boids/pseudocode.html
@@ -419,6 +419,6 @@ BoidStencil.define('Boid', Boid, {
 //   obj.gap = Tools.random(25, 100);
 // });
 
-import { RuntimeType } from 'ngFoundryModels';
-import { foGlyph } from 'ngFoundryModels';
+import { RuntimeType } from 'ng-foundry-models';
+import { foGlyph } from 'ng-foundry-models';
 RuntimeType.define(Boid);
